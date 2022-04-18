@@ -10,7 +10,22 @@ app.set("view engine", "ejs");
 
 //index page
 app.get("/", (req, res) => {
-  res.render("pages/index");
+  const mascots = [
+    { name: "John", organization: "AVF", birth_year: 2012 },
+    { name: "Billy", organization: "Linux", birth_year: 1996 },
+    {
+      name: "Bob",
+      organization: "Nepal Life Improvement Foundation",
+      birth_year: 1994,
+    },
+  ];
+  const tagline =
+    "No programming concept is complete without a cute cat mascot";
+
+  res.render("pages/index", {
+    mascots: mascots,
+    tagline: tagline,
+  });
 });
 
 //about page
